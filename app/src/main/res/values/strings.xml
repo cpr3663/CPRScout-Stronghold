@@ -1,0 +1,30 @@
+<resources>
+    <string name="app_name">CPR Scout Stronghold</string>
+    <string name="blue">Blue</string>
+    <string-array name="defenses">
+        <item>"???"</item> /Default
+        <item>PC</item> /Portcullis
+        <item>MT</item> /Moat
+        <item>DB</item> /Drawbridge
+        <item>RW</item> /Rock Wall
+        <item>CH</item> /Chaval de frise
+        <item>RP</item> /Rampart
+        <item>SP</item> /Sally Port
+        <item>RT</item> /Rough Terrain
+    </string-array>
+    <string-array name="crossdefenses">
+        <item>"???"</item> / Default
+        <item>LB</item> /Low Bar
+        <item>PC</item> /Portcullis
+        <item>MT</item> /Moat
+        <item>DB</item> /Drawbridge
+        <item>RW</item> /Rock Wall
+        <item>CH</item> /Chaval de frise
+        <item>RP</item> /Rampart
+        <item>SP</item> /Sally Port
+        <item>RT</item> /Rough Terrain
+    </string-array>
+    <string name="auto_shoot">Auto Shooting Location</string>
+    <string name="teleop_shoot">Teleop Shooting Location</string>
+    <string name="scaling">Challenge/Scale - End Game</string>
+</resources>

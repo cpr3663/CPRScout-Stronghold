@@ -1041,7 +1041,7 @@ public class MainActivity extends AppCompatActivity {
         SimpleDateFormat sdf = new SimpleDateFormat("MMdd");
         String currentDate = sdf.format(new Date());
 
-        String Def0 = "LB"; //Low Bar is Defense 0.
+        String strDef0 = "LB"; //Low Bar is Defense 0.
 
         RadioGroup rgcolor = (RadioGroup) findViewById(R.id.radioGroupColor);
         RadioGroup rgaction = (RadioGroup) findViewById(R.id.radioGroupAction);
@@ -1115,11 +1115,68 @@ public class MainActivity extends AppCompatActivity {
         spDefense3 = (Spinner) findViewById(R.id.spinnerAutoDef3);
         spDefense4 = (Spinner) findViewById(R.id.spinnerAutoDef4);
         spDefenseAuto = (Spinner) findViewById(R.id.spinnerAutoCross);
-        String Def1 = spDefense1.getSelectedItem().toString();
-        String Def2 = spDefense2.getSelectedItem().toString();
-        String Def3 = spDefense3.getSelectedItem().toString();
-        String Def4 = spDefense4.getSelectedItem().toString();
-        String DefAuto = spDefenseAuto.getSelectedItem().toString();
+
+        String strDef1 = spDefense1.getSelectedItem().toString();
+        String strDef2 = spDefense2.getSelectedItem().toString();
+        String strDef3 = spDefense3.getSelectedItem().toString();
+        String strDef4 = spDefense4.getSelectedItem().toString();
+        String strDefAuto = spDefenseAuto.getSelectedItem().toString();
+
+        String strPCTotal = "0";
+        String strMTTotal = "0";
+        String strDBTotal = "0";
+        String strRWTotal = "0";
+        String strCHTotal = "0";
+        String strRPTotal = "0";
+        String strSPTotal = "0";
+        String strRTTotal = "0";
+
+        //Load Defenses into an Array.
+        String[] ArrayDef = new String[4];
+        ArrayDef[0] = strDef1;
+        ArrayDef[1] = strDef2;
+        ArrayDef[2] = strDef3;
+        ArrayDef[3] = strDef4;
+
+        //Load Defense totals into an Array.
+        String[] ArrayDefTotal = new String[4];
+        ArrayDefTotal[0] = strDef1Total;
+        ArrayDefTotal[1] = strDef2Total;
+        ArrayDefTotal[2] = strDef3Total;
+        ArrayDefTotal[3] = strDef4Total;
+
+        //Save defense totals into the appropriate variables.
+        for (int i = 0; i < 4; i ++) {
+            String strDef = ArrayDef[i];
+            String strDefTotal = ArrayDefTotal[i];
+
+            switch(strDef){
+                case "PC":
+                     strPCTotal = strDefTotal;
+                     break;
+                case "MT":
+                     strMTTotal = strDefTotal;
+                     break;
+                case "DB":
+                     strDBTotal = strDefTotal;
+                     break;
+                case "RW":
+                     strRWTotal = strDefTotal;
+                     break;
+                case "CH":
+                     strCHTotal = strDefTotal;
+                     break;
+                case "RP":
+                     strRPTotal = strDefTotal;
+                     break;
+                case "SP":
+                     strSPTotal = strDefTotal;
+                     break;
+                case "RT":
+                     strRTTotal = strDefTotal;
+                     break;
+                 }
+        }
 
         int selectedIdcolor = rgcolor.getCheckedRadioButtonId();
         rbcolor = (RadioButton) findViewById(selectedIdcolor);
@@ -1145,18 +1202,23 @@ public class MainActivity extends AppCompatActivity {
         int selectedIdendgame = rgendgame.getCheckedRadioButtonId();
         rbendgame = (RadioButton) findViewById(selectedIdendgame);
 
-        String matchdata = strMatchNum + "," +
+        //Create the string of data to save.
+        String strMatchData = strMatchNum + "," +
                 strTeamNum + "," +
                 rbcolor.getText() + "," +
                 chkDeadBot.isChecked() + "," +
                 chkNoShow.isChecked() + "," +
-                Def0 + "," + strDef0Total + "," +
-                Def1 + "," + strDef1Total + "," +
-                Def2 + "," + strDef2Total + "," +
-                Def3 + "," + strDef3Total + "," +
-                Def4 + "," + strDef4Total + "," +
-                rbaction.getText() + "," +
-                DefAuto + "," +
+                strDef0 + "," + strDef0Total + "," +
+                "PC" + "," + strPCTotal + "," +
+                "MT" + "," + strMTTotal + "," +
+                "DB" + "," + strDBTotal + "," +
+                "RW" + "," + strRWTotal + "," +
+                "CH" + "," + strCHTotal + "," +
+                "RP" + "," + strRPTotal + "," +
+                "SP" + "," + strSPTotal + "," +
+                "RT" + "," + strRTTotal + "," +
+                 rbaction.getText() + "," +
+                strDefAuto + "," +
                 rbautoshot.getText() + "," +
                 chkAutoMiss.isChecked() + "," +
                 strAutoLoc + "," +
@@ -1201,18 +1263,27 @@ public class MainActivity extends AppCompatActivity {
             //File docdir = Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_DOCUMENTS);
             File dir = new File(Environment.getExternalStorageDirectory() + "/data/CPR_Scout");
             if (!dir.exists()) {
-                 dir.mkdirs();
+                dir.mkdirs();
             }
             File file = new File(dir, FILENAME);
             FileWriter fileWriter = new FileWriter(file, true);
             BufferedWriter bufferedWriter = new BufferedWriter(fileWriter);
-            bufferedWriter.write(matchdata);
+            bufferedWriter.write(strMatchData);
             bufferedWriter.close();
             fileWriter.close();
 
             Toast.makeText(MainActivity.this, "Data Saved", Toast.LENGTH_SHORT).show();
+        }
+            catch(FileNotFoundException e){
+                e.printStackTrace();
+                Toast.makeText(MainActivity.this, "File Not Found", Toast.LENGTH_LONG).show();
+            }
+            catch(IOException e){
+                e.printStackTrace();
+                Toast.makeText(MainActivity.this, "I/O Exception", Toast.LENGTH_LONG).show();
+            }
 
-            //Clear data
+            //Clear data to prepare for next match
             String empty = "";
             TeamNum.setText(String.valueOf(empty));
 
@@ -1337,13 +1408,6 @@ public class MainActivity extends AppCompatActivity {
             rbScaled.setChecked(false);
             TeamNum.requestFocus(); //Move cursor to Team Number field.
 
-        } catch (FileNotFoundException e) {
-            e.printStackTrace();
-            Toast.makeText(MainActivity.this, "File Not Found", Toast.LENGTH_LONG).show();
-        } catch (IOException e) {
-            e.printStackTrace();
-            Toast.makeText(MainActivity.this, "I/O Exception", Toast.LENGTH_LONG).show();
-        }
     }
 
     public void setContentView(View view) {

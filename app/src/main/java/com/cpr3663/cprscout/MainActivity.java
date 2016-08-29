@@ -76,6 +76,14 @@ public class MainActivity extends AppCompatActivity {
         ArrayAdapter<CharSequence> adapterDefense1, adapterDefense2;
         ArrayAdapter<CharSequence> adapterDefense3, adapterDefense4, adapterCrossDefenses;
 
+        final String[] strArrayDef = new String[6];
+        strArrayDef[0] = "???";
+        strArrayDef[1] = "LB";
+        strArrayDef[2] = "";
+        strArrayDef[3] = "";
+        strArrayDef[4] = "";
+        strArrayDef[5] = "";
+
         spDefense1 = (Spinner) findViewById(R.id.spinnerAutoDef1);
         adapterDefense1 = ArrayAdapter.createFromResource(this, R.array.defenses, android.R.layout.simple_spinner_item);
         adapterDefense1.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
@@ -86,6 +94,7 @@ public class MainActivity extends AppCompatActivity {
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
 
                 btnTeleDef1.setText(parent.getItemAtPosition(position).toString());
+                strArrayDef[2] = parent.getItemAtPosition(position).toString();
             }
             @Override
             public void onNothingSelected(AdapterView<?> parent) {
@@ -102,6 +111,7 @@ public class MainActivity extends AppCompatActivity {
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
 
                 btnTeleDef2.setText(parent.getItemAtPosition(position).toString());
+                strArrayDef[3] = parent.getItemAtPosition(position).toString();
             }
             @Override
             public void onNothingSelected(AdapterView<?> parent) {
@@ -118,6 +128,7 @@ public class MainActivity extends AppCompatActivity {
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
 
                 btnTeleDef3.setText(parent.getItemAtPosition(position).toString());
+                strArrayDef[4] = parent.getItemAtPosition(position).toString();
             }
             @Override
             public void onNothingSelected(AdapterView<?> parent) {
@@ -134,17 +145,17 @@ public class MainActivity extends AppCompatActivity {
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
 
                 btnTeleDef4.setText(parent.getItemAtPosition(position).toString());
+                strArrayDef[5] = parent.getItemAtPosition(position).toString();
             }
             @Override
             public void onNothingSelected(AdapterView<?> parent) {
             }
         });
 
-        adapterCrossDefenses = ArrayAdapter.createFromResource(this, R.array.crossdefenses, android.R.layout.simple_spinner_item);
-        adapterCrossDefenses.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        ArrayAdapter<String> spinnerArrayAdapter = new ArrayAdapter<String>(this, android.R.layout.simple_spinner_item, strArrayDef);
+        spinnerArrayAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         spDefenseAuto = (Spinner) findViewById(R.id.spinnerAutoCross);
-        spDefenseAuto.setAdapter(adapterCrossDefenses);
-
+        spDefenseAuto.setAdapter(spinnerArrayAdapter);
 
         btnAutoA = (Button) findViewById(R.id.btnAutoA);
         btnAutoB = (Button) findViewById(R.id.btnAutoB);
@@ -1132,23 +1143,23 @@ public class MainActivity extends AppCompatActivity {
         String strRTTotal = "0";
 
         //Load Defenses into an Array.
-        String[] ArrayDef = new String[4];
-        ArrayDef[0] = strDef1;
-        ArrayDef[1] = strDef2;
-        ArrayDef[2] = strDef3;
-        ArrayDef[3] = strDef4;
+        String[] strArrayDef = new String[4];
+        strArrayDef[0] = strDef1;
+        strArrayDef[1] = strDef2;
+        strArrayDef[2] = strDef3;
+        strArrayDef[3] = strDef4;
 
         //Load Defense totals into an Array.
-        String[] ArrayDefTotal = new String[4];
-        ArrayDefTotal[0] = strDef1Total;
-        ArrayDefTotal[1] = strDef2Total;
-        ArrayDefTotal[2] = strDef3Total;
-        ArrayDefTotal[3] = strDef4Total;
+        String[] strArrayDefTotal = new String[4];
+        strArrayDefTotal[0] = strDef1Total;
+        strArrayDefTotal[1] = strDef2Total;
+        strArrayDefTotal[2] = strDef3Total;
+        strArrayDefTotal[3] = strDef4Total;
 
         //Save defense totals into the appropriate variables.
         for (int i = 0; i < 4; i ++) {
-            String strDef = ArrayDef[i];
-            String strDefTotal = ArrayDefTotal[i];
+            String strDef = strArrayDef[i];
+            String strDefTotal = strArrayDefTotal[i];
 
             switch(strDef){
                 case "PC":
@@ -1208,16 +1219,16 @@ public class MainActivity extends AppCompatActivity {
                 rbcolor.getText() + "," +
                 chkDeadBot.isChecked() + "," +
                 chkNoShow.isChecked() + "," +
-                strDef0 + "," + strDef0Total + "," +
-                "PC" + "," + strPCTotal + "," +
-                "MT" + "," + strMTTotal + "," +
-                "DB" + "," + strDBTotal + "," +
-                "RW" + "," + strRWTotal + "," +
-                "CH" + "," + strCHTotal + "," +
-                "RP" + "," + strRPTotal + "," +
-                "SP" + "," + strSPTotal + "," +
-                "RT" + "," + strRTTotal + "," +
-                 rbaction.getText() + "," +
+                strDef0Total + "," +
+                strPCTotal + "," +
+                strMTTotal + "," +
+                strDBTotal + "," +
+                strRWTotal + "," +
+                strCHTotal + "," +
+                strRPTotal + "," +
+                strSPTotal + "," +
+                strRTTotal + "," +
+                rbaction.getText() + "," +
                 strDefAuto + "," +
                 rbautoshot.getText() + "," +
                 chkAutoMiss.isChecked() + "," +
@@ -1235,9 +1246,9 @@ public class MainActivity extends AppCompatActivity {
                 rbshotspeed.getText() + "," +
                 rbdrivespeed.getText() + "," +
                 rbdriving.getText() + "," +
-                chkDefensive.getText() + "," +
-                chkDrivesPart.getText() + "," +
-                chkPoorPickup.getText() + "," +
+                chkDefensive.isChecked() + "," +
+                chkDrivesPart.isChecked() + "," +
+                chkPoorPickup.isChecked() + "," +
                 rbdefend.getText() + "," +
                 strScaleLoc + "," +
                 rbendgame.getText() + "\n";

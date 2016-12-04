@@ -1407,9 +1407,10 @@
 
         <RadioGroup
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_height="40dp"
             android:orientation="horizontal"
-            android:id="@+id/radioGroupShotSpeed">
+            android:id="@+id/radioGroupShotSpeed"
+            android:layout_marginTop="10dp">
 
             <TextView
                 android:layout_width="wrap_content"
@@ -1444,9 +1445,10 @@
 
         <RadioGroup
             android:layout_width="wrap_content"
-            android:layout_height="match_parent"
+            android:layout_height="40dp"
             android:orientation="horizontal"
-            android:id="@+id/radioGroupDriveSpeed">
+            android:id="@+id/radioGroupDriveSpeed"
+            android:layout_marginTop="10dp">
 
             <TextView
                 android:layout_width="wrap_content"
@@ -1496,14 +1498,15 @@
     </LinearLayout>
 
     <RadioGroup
-        android:layout_width="wrap_content"
-        android:layout_height="match_parent"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
         android:orientation="horizontal"
-        android:id="@+id/radioGroupDrivingAb">
+        android:id="@+id/radioGroupDrivingAb"
+        android:layout_weight="0.35">
 
         <RadioButton
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_height="50dp"
             android:text="Smart"
             android:id="@+id/radioButtonSmart"
             android:textColor="#ef2505f3"
@@ -1511,21 +1514,22 @@
 
         <RadioButton
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Ordinary"
-            android:id="@+id/radioButtonOrd"
-            android:textColor="#ef2505f3" />
+            android:layout_height="50dp"
+            android:text="Aimless"
+            android:id="@+id/radioButtonAim"
+            android:textColor="#ef2505f3"
+            android:checked="false" />
 
         <RadioButton
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_height="50dp"
             android:text="Reckless"
             android:id="@+id/radioButtonReck"
             android:textColor="#ef2505f3" />
 
         <RadioButton
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_height="50dp"
             android:text="Struggle"
             android:id="@+id/radioButtonStruggle"
             android:textColor="#ef2505f3" />
@@ -1538,21 +1542,21 @@
 
         <CheckBox
             android:layout_width="95dp"
-            android:layout_height="match_parent"
+            android:layout_height="50dp"
             android:text="Defensive Robot"
             android:id="@+id/checkBoxDefense"
             android:textColor="#ef2505f3" />
 
         <CheckBox
             android:layout_width="101dp"
-            android:layout_height="42dp"
+            android:layout_height="50dp"
             android:text="Drives Into Partner"
             android:id="@+id/checkBoxDrivePartner"
             android:textColor="#ef2505f3" />
 
         <CheckBox
             android:layout_width="105dp"
-            android:layout_height="match_parent"
+            android:layout_height="50dp"
             android:text="Poor Ball Pickup"
             android:id="@+id/checkBoxPoorPickup"
             android:textColor="#ef2505f3" />
@@ -1560,7 +1564,7 @@
 
     <RadioGroup
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_height="50dp"
         android:orientation="horizontal"
         android:id="@+id/radioGroupDefend">
 

@@ -1068,7 +1068,7 @@ public class MainActivity extends AppCompatActivity {
         RadioButton rbNoAct, rbReach, rbCross;
         RadioButton rbAutoHi, rbAutoLow, rbTeleHi, rbTeleLow;
         RadioButton rbL3, rbG3, rbG6, rbFast, rbMed, rbSlow;
-        RadioButton rbSmart, rbOrd, rbReck, rbStruggle;
+        RadioButton rbSmart, rbAim, rbReck, rbStruggle;
         RadioButton rbGreat, rbOK, rbPoor;
         RadioButton rbNoChallenge, rbFailChallenge, rbChallenge, rbFailScale, rbScaled;
         CheckBox chkDeadBot, chkNoShow, chkAutoMiss, chkAutoWrong, chkAutoHit;
@@ -1214,7 +1214,8 @@ public class MainActivity extends AppCompatActivity {
         rbendgame = (RadioButton) findViewById(selectedIdendgame);
 
         //Create the string of data to save.
-        String strMatchData = strMatchNum + "," +
+        String strMatchData = strScoutName + "," +
+                strMatchNum + "," +
                 strTeamNum + "," +
                 rbcolor.getText() + "," +
                 chkDeadBot.isChecked() + "," +
@@ -1253,8 +1254,9 @@ public class MainActivity extends AppCompatActivity {
                 strScaleLoc + "," +
                 rbendgame.getText() + "\n";
 
-        strScoutName = strScoutName.replace(" ", "_");
-        String FILENAME = "scout_data_" + strScoutName + "_" + currentDate + ".csv";
+        strScoutName = strScoutName.replace(" ", "_"); //Remove spaces
+        strScoutName = strScoutName.replace(",", "_"); //Remove commas
+        String FILENAME = "Scout_" + strScoutName + "_" + currentDate + ".csv";
         //File file;
         //file = new File(this.getExternalFilesDir(Environment.DIRECTORY_DOCUMENTS), FILENAME);
 
@@ -1272,7 +1274,8 @@ public class MainActivity extends AppCompatActivity {
 
             //The command below doesn't seem to work on Android 4.2.2
             //File docdir = Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_DOCUMENTS);
-            File dir = new File(Environment.getExternalStorageDirectory() + "/data/CPR_Scout");
+
+            File dir = new File(Environment.getExternalStorageDirectory() + "/data/CPR_Scout/");
             if (!dir.exists()) {
                 dir.mkdirs();
             }
@@ -1280,6 +1283,7 @@ public class MainActivity extends AppCompatActivity {
             FileWriter fileWriter = new FileWriter(file, true);
             BufferedWriter bufferedWriter = new BufferedWriter(fileWriter);
             bufferedWriter.write(strMatchData);
+            bufferedWriter.flush();
             bufferedWriter.close();
             fileWriter.close();
 
@@ -1379,7 +1383,7 @@ public class MainActivity extends AppCompatActivity {
             rbMed = (RadioButton) findViewById(R.id.radioButtonMed);
             rbSlow = (RadioButton) findViewById(R.id.radioButtonSlow);
             rbSmart = (RadioButton) findViewById(R.id.radioButtonSmart);
-            rbOrd = (RadioButton) findViewById(R.id.radioButtonOrd);
+            rbAim = (RadioButton) findViewById(R.id.radioButtonAim);
             rbReck = (RadioButton) findViewById(R.id.radioButtonReck);
             rbStruggle = (RadioButton) findViewById(R.id.radioButtonStruggle);
             rbGreat = (RadioButton) findViewById(R.id.radioButtonDefGreat);
@@ -1406,7 +1410,7 @@ public class MainActivity extends AppCompatActivity {
             rbMed.setChecked(false);
             rbSlow.setChecked(false);
             rbSmart.setChecked(true);
-            rbOrd.setChecked(false);
+            rbAim.setChecked(false);
             rbReck.setChecked(false);
             rbStruggle.setChecked(false);
             rbGreat.setChecked(true);

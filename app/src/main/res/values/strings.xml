@@ -21,7 +21,7 @@
         <item>RW</item> /Rock Wall
         <item>CH</item> /Chaval de frise
         <item>RP</item> /Rampart
-        <item>SP</item> /Sally Port
+        <item>SP</item>   /Sally Port s
         <item>RT</item> /Rough Terrain
     </string-array>
     <string name="auto_shoot">Auto Shooting Location</string>

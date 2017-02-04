@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">CPR Scout Stronghold</string>
+    <string name="app_name">CPR Scout STEAMworks</string>
     <string name="blue">Blue</string>
     <string-array name="defenses">
         <item>"???"</item> /Default

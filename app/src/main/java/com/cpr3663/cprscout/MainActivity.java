@@ -7,14 +7,11 @@ import android.os.Environment;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.view.WindowManager;
-import android.widget.AdapterView;
-import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.EditText;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
-import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -29,7 +26,6 @@ import java.io.FileWriter;
 import java.io.IOException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
-
 
 
 public class MainActivity extends AppCompatActivity {
@@ -49,13 +45,12 @@ public class MainActivity extends AppCompatActivity {
     //Auto buttons:
     Button btnAutoA, btnAutoB, btnAutoC, btnAutoD, btnAutoE, btnAutoF;
     Button btnAutoG, btnAutoH, btnAutoI, btnAutoJ, btnAutoK, btnAutoL;
-    Button btnAutoM, btnAutoX, btnAutoY, btnAutoZ;
+    Button btnAutoM, btnAutoN;
 
     //Teleop buttons:
     Button btnTeleA, btnTeleB, btnTeleC, btnTeleD, btnTeleE, btnTeleF;
     Button btnTeleG, btnTeleH, btnTeleI, btnTeleJ, btnTeleK, btnTeleL;
-    Button btnTeleM, btnTeleX, btnTeleY, btnTeleZ;
-    Button btnTeleDef0, btnTeleDef1, btnTeleDef2, btnTeleDef3, btnTeleDef4;
+    Button btnTeleM, btnTeleN;
     Button btnHiMakeMinus, btnHiMakePlus, btnLoMakeMinus, btnLoMakePlus;
     Button btnHiMissMinus, btnHiMissPlus, btnLoMissMinus, btnLoMissPlus;
 
@@ -71,92 +66,6 @@ public class MainActivity extends AppCompatActivity {
                 WindowManager.LayoutParams.SOFT_INPUT_STATE_ALWAYS_HIDDEN
         );
 
-        Spinner spDefense1, spDefense2, spDefense3, spDefense4, spDefenseAuto;
-
-        ArrayAdapter<CharSequence> adapterDefense1, adapterDefense2;
-        ArrayAdapter<CharSequence> adapterDefense3, adapterDefense4, adapterCrossDefenses;
-
-        final String[] strArrayDef = new String[6];
-        strArrayDef[0] = "???";
-        strArrayDef[1] = "LB";
-        strArrayDef[2] = "";
-        strArrayDef[3] = "";
-        strArrayDef[4] = "";
-        strArrayDef[5] = "";
-
-        spDefense1 = (Spinner) findViewById(R.id.spinnerAutoDef1);
-        adapterDefense1 = ArrayAdapter.createFromResource(this, R.array.defenses, android.R.layout.simple_spinner_item);
-        adapterDefense1.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-        spDefense1.setAdapter(adapterDefense1);
-
-        spDefense1.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
-            @Override
-            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-
-                btnTeleDef1.setText(parent.getItemAtPosition(position).toString());
-                strArrayDef[2] = parent.getItemAtPosition(position).toString();
-            }
-            @Override
-            public void onNothingSelected(AdapterView<?> parent) {
-            }
-        });
-
-        spDefense2 = (Spinner) findViewById(R.id.spinnerAutoDef2);
-        adapterDefense2 = ArrayAdapter.createFromResource(this, R.array.defenses, android.R.layout.simple_spinner_item);
-        adapterDefense2.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-        spDefense2.setAdapter(adapterDefense2);
-
-        spDefense2.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
-            @Override
-            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-
-                btnTeleDef2.setText(parent.getItemAtPosition(position).toString());
-                strArrayDef[3] = parent.getItemAtPosition(position).toString();
-            }
-            @Override
-            public void onNothingSelected(AdapterView<?> parent) {
-            }
-        });
-
-        spDefense3 = (Spinner) findViewById(R.id.spinnerAutoDef3);
-        adapterDefense3 = ArrayAdapter.createFromResource(this, R.array.defenses, android.R.layout.simple_spinner_item);
-        adapterDefense3.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-        spDefense3.setAdapter(adapterDefense3);
-
-        spDefense3.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
-            @Override
-            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-
-                btnTeleDef3.setText(parent.getItemAtPosition(position).toString());
-                strArrayDef[4] = parent.getItemAtPosition(position).toString();
-            }
-            @Override
-            public void onNothingSelected(AdapterView<?> parent) {
-            }
-        });
-
-        spDefense4 = (Spinner) findViewById(R.id.spinnerAutoDef4);
-        adapterDefense4 = ArrayAdapter.createFromResource(this, R.array.defenses, android.R.layout.simple_spinner_item);
-        adapterDefense4.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-        spDefense4.setAdapter(adapterDefense4);
-
-        spDefense4.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
-            @Override
-            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-
-                btnTeleDef4.setText(parent.getItemAtPosition(position).toString());
-                strArrayDef[5] = parent.getItemAtPosition(position).toString();
-            }
-            @Override
-            public void onNothingSelected(AdapterView<?> parent) {
-            }
-        });
-
-        ArrayAdapter<String> spinnerArrayAdapter = new ArrayAdapter<String>(this, android.R.layout.simple_spinner_item, strArrayDef);
-        spinnerArrayAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-        spDefenseAuto = (Spinner) findViewById(R.id.spinnerAutoCross);
-        spDefenseAuto.setAdapter(spinnerArrayAdapter);
-
         btnAutoA = (Button) findViewById(R.id.btnAutoA);
         btnAutoB = (Button) findViewById(R.id.btnAutoB);
         btnAutoC = (Button) findViewById(R.id.btnAutoC);
@@ -170,9 +79,7 @@ public class MainActivity extends AppCompatActivity {
         btnAutoK = (Button) findViewById(R.id.btnAutoK);
         btnAutoL = (Button) findViewById(R.id.btnAutoL);
         btnAutoM = (Button) findViewById(R.id.btnAutoM);
-        btnAutoX = (Button) findViewById(R.id.btnAutoX);
-        btnAutoY = (Button) findViewById(R.id.btnAutoY);
-        btnAutoZ = (Button) findViewById(R.id.btnAutoZ);
+        btnAutoN = (Button) findViewById(R.id.btnAutoN);
 
         btnTeleA = (Button) findViewById(R.id.btnTeleA);
         btnTeleB = (Button) findViewById(R.id.btnTeleB);
@@ -187,15 +94,7 @@ public class MainActivity extends AppCompatActivity {
         btnTeleK = (Button) findViewById(R.id.btnTeleK);
         btnTeleL = (Button) findViewById(R.id.btnTeleL);
         btnTeleM = (Button) findViewById(R.id.btnTeleM);
-        btnTeleX = (Button) findViewById(R.id.btnTeleX);
-        btnTeleY = (Button) findViewById(R.id.btnTeleY);
-        btnTeleZ = (Button) findViewById(R.id.btnTeleZ);
-
-        btnTeleDef0 = (Button) findViewById(R.id.btnTeleDef0);
-        btnTeleDef1 = (Button) findViewById(R.id.btnTeleDef1);
-        btnTeleDef2 = (Button) findViewById(R.id.btnTeleDef2);
-        btnTeleDef3 = (Button) findViewById(R.id.btnTeleDef3);
-        btnTeleDef4 = (Button) findViewById(R.id.btnTeleDef4);
+        btnTeleN = (Button) findViewById(R.id.btnTeleN);
 
         btnHiMakeMinus = (Button) findViewById(R.id.btnHiMakeMinus);
         btnHiMakePlus = (Button) findViewById(R.id.btnHiMakePlus);
@@ -332,6 +231,7 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
+
         btnAutoI.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -407,50 +307,21 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-        btnAutoX.setOnClickListener(new View.OnClickListener() {
+        btnAutoN.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                int color = btnAutoX.getCurrentTextColor();
+                int color = btnAutoN.getCurrentTextColor();
                 setAuto2black();
                 if (color == Color.RED) {
-                    btnAutoX.setTextColor(Color.BLACK);
+                    btnAutoN.setTextColor(Color.BLACK);
                 } else {
-                    btnAutoX.setTextColor(Color.RED);
+                    btnAutoN.setTextColor(Color.RED);
                 }
                 TextView tv = (TextView) findViewById(R.id.editTextLoc);
-                tv.setText("X");
+                tv.setText("N");
             }
         });
 
-        btnAutoY.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                int color = btnAutoY.getCurrentTextColor();
-                setAuto2black();
-                if (color == Color.RED) {
-                    btnAutoY.setTextColor(Color.BLACK);
-                } else {
-                    btnAutoY.setTextColor(Color.RED);
-                }
-                TextView tv = (TextView) findViewById(R.id.editTextLoc);
-                tv.setText("Y");
-            }
-        });
-
-        btnAutoZ.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                int color = btnAutoZ.getCurrentTextColor();
-                setAuto2black();
-                if (color == Color.RED) {
-                    btnAutoZ.setTextColor(Color.BLACK);
-                } else {
-                    btnAutoZ.setTextColor(Color.RED);
-                }
-                TextView tv = (TextView) findViewById(R.id.editTextLoc);
-                tv.setText("Z");
-            }
-        });
 
         btnTeleA.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -725,152 +596,24 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-        btnTeleX.setOnClickListener(new View.OnClickListener() {
+        btnTeleN.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                int color = btnTeleX.getCurrentTextColor();
+                int color = btnTeleM.getCurrentTextColor();
                 setTele2black();
                 if (color == Color.RED) {
-                    btnTeleX.setTextColor(Color.BLACK);
+                    btnTeleN.setTextColor(Color.BLACK);
                 } else {
-                    btnTeleX.setTextColor(Color.RED);
+                    btnTeleN.setTextColor(Color.RED);
                 }
                 RadioButton rbHi = (RadioButton) findViewById(R.id.radioButtonTeleHiLoc);
                 if (rbHi.isChecked()) {
                     TextView tv = (TextView) findViewById(R.id.editTextTeleLocHi);
-                    tv.setText("X");
+                    tv.setText("N");
                 } else {
                     TextView tv = (TextView) findViewById(R.id.editTextTeleLocLo);
-                    tv.setText("X");
+                    tv.setText("N");
                 }
-            }
-        });
-
-        btnTeleY.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                int color = btnTeleY.getCurrentTextColor();
-                setTele2black();
-                if (color == Color.RED) {
-                    btnTeleY.setTextColor(Color.BLACK);
-                } else {
-                    btnTeleY.setTextColor(Color.RED);
-                }
-                RadioButton rbHi = (RadioButton) findViewById(R.id.radioButtonTeleHiLoc);
-                if (rbHi.isChecked()) {
-                    TextView tv = (TextView) findViewById(R.id.editTextTeleLocHi);
-                    tv.setText("Y");
-                } else {
-                    TextView tv = (TextView) findViewById(R.id.editTextTeleLocLo);
-                    tv.setText("Y");
-                }
-            }
-        });
-
-        btnTeleZ.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                int color = btnTeleZ.getCurrentTextColor();
-                setTele2black();
-                if (color == Color.RED) {
-                    btnTeleZ.setTextColor(Color.BLACK);
-                } else {
-                    btnTeleZ.setTextColor(Color.RED);
-                }
-                RadioButton rbHi = (RadioButton) findViewById(R.id.radioButtonTeleHiLoc);
-                if (rbHi.isChecked()) {
-                    TextView tv = (TextView) findViewById(R.id.editTextTeleLocHi);
-                    tv.setText("Z");
-                } else {
-                    TextView tv = (TextView) findViewById(R.id.editTextTeleLocLo);
-                    tv.setText("Z");
-                }
-            }
-        });
-
-        btnTeleDef0.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                EditText stdefTotal = (EditText) findViewById(R.id.Def0Total);
-                String stTotal;
-                //If it happens to be blank then reset to 0
-                if (stdefTotal.getText().toString().isEmpty())
-                    stTotal = "0";
-                else
-                stTotal = stdefTotal.getText().toString();
-
-                int intTotal;
-                intTotal = Integer.parseInt(stTotal);
-                intTotal = intTotal + 1;
-                stdefTotal.setText(String.valueOf(intTotal));
-
-            }
-        });
-
-        btnTeleDef1.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                EditText stdefTotal = (EditText) findViewById(R.id.Def1Total);
-                String stTotal;
-                if (stdefTotal.getText().toString().isEmpty())
-                    stTotal = "0";
-                else
-                    stTotal = stdefTotal.getText().toString();
-
-                int intTotal;
-                intTotal = Integer.parseInt(stTotal);
-                intTotal = intTotal + 1;
-                stdefTotal.setText(String.valueOf(intTotal));
-            }
-        });
-
-        btnTeleDef2.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                EditText stdefTotal = (EditText) findViewById(R.id.Def2Total);
-                String stTotal;
-                if (stdefTotal.getText().toString().isEmpty())
-                    stTotal = "0";
-                else
-                    stTotal = stdefTotal.getText().toString();
-
-                int intTotal;
-                intTotal = Integer.parseInt(stTotal);
-                intTotal = intTotal + 1;
-                stdefTotal.setText(String.valueOf(intTotal));
-            }
-        });
-
-        btnTeleDef3.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                EditText stdefTotal = (EditText) findViewById(R.id.Def3Total);
-                String stTotal;
-                if (stdefTotal.getText().toString().isEmpty())
-                    stTotal = "0";
-                else
-                    stTotal = stdefTotal.getText().toString();
-
-                int intTotal;
-                intTotal = Integer.parseInt(stTotal);
-                intTotal = intTotal + 1;
-                stdefTotal.setText(String.valueOf(intTotal));
-            }
-        });
-
-        btnTeleDef4.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                EditText stdefTotal = (EditText) findViewById(R.id.Def4Total);
-                String stTotal;
-                if (stdefTotal.getText().toString().isEmpty())
-                    stTotal = "0";
-                else
-                    stTotal = stdefTotal.getText().toString();
-                int intTotal;
-                intTotal = Integer.parseInt(stTotal);
-                intTotal = intTotal + 1;
-                stdefTotal.setText(String.valueOf(intTotal));
             }
         });
 
@@ -1052,8 +795,6 @@ public class MainActivity extends AppCompatActivity {
         SimpleDateFormat sdf = new SimpleDateFormat("MMdd");
         String currentDate = sdf.format(new Date());
 
-        String strDef0 = "LB"; //Low Bar is Defense 0.
-
         RadioGroup rgcolor = (RadioGroup) findViewById(R.id.radioGroupColor);
         RadioGroup rgaction = (RadioGroup) findViewById(R.id.radioGroupAction);
         RadioGroup rgautoshot = (RadioGroup) findViewById(R.id.radioGroupAutoShot);
@@ -1072,18 +813,12 @@ public class MainActivity extends AppCompatActivity {
         RadioButton rbGreat, rbOK, rbPoor;
         RadioButton rbNoChallenge, rbFailChallenge, rbChallenge, rbFailScale, rbScaled;
         CheckBox chkDeadBot, chkNoShow, chkAutoMiss, chkAutoWrong, chkAutoHit;
-        CheckBox chkAutoVeers, chkAutoSpy, chkDefensive, chkDrivesPart, chkPoorPickup;
-        Spinner spDefense1, spDefense2, spDefense3, spDefense4, spDefenseAuto;
+        CheckBox chkAutoVeers, chkDefensive, chkDrivesPart, chkPoorPickup;
 
         EditText ScoutName = (EditText) findViewById(R.id.editTextName);
         EditText TeamNum = (EditText) findViewById(R.id.editTextTeamNum);
         EditText MatchNum = (EditText) findViewById(R.id.editTextMatchNum);
         EditText AutoLoc = (EditText) findViewById(R.id.editTextLoc);
-        EditText Def0Total = (EditText) findViewById(R.id.Def0Total);
-        EditText Def1Total = (EditText) findViewById(R.id.Def1Total);
-        EditText Def2Total = (EditText) findViewById(R.id.Def2Total);
-        EditText Def3Total = (EditText) findViewById(R.id.Def3Total);
-        EditText Def4Total = (EditText) findViewById(R.id.Def4Total);
         EditText HiLoc = (EditText) findViewById(R.id.editTextTeleLocHi);
         EditText LoLoc = (EditText) findViewById(R.id.editTextTeleLocLo);
         EditText HiMake = (EditText) findViewById(R.id.HiMakeTotal);
@@ -1096,11 +831,6 @@ public class MainActivity extends AppCompatActivity {
         String strTeamNum = TeamNum.getText().toString();
         String strMatchNum = MatchNum.getText().toString();
         String strAutoLoc = AutoLoc.getText().toString();
-        String strDef0Total = Def0Total.getText().toString();
-        String strDef1Total = Def1Total.getText().toString();
-        String strDef2Total = Def2Total.getText().toString();
-        String strDef3Total = Def3Total.getText().toString();
-        String strDef4Total = Def4Total.getText().toString();
         String strHiLoc = HiLoc.getText().toString();
         String strLoLoc = LoLoc.getText().toString();
         String strHiMake = HiMake.getText().toString();
@@ -1115,79 +845,10 @@ public class MainActivity extends AppCompatActivity {
         chkAutoWrong = (CheckBox) findViewById(R.id.checkBoxAutoWongWay);
         chkAutoHit = (CheckBox) findViewById(R.id.checkBoxAutoHitPartner);
         chkAutoVeers = (CheckBox) findViewById(R.id.checkBoxAutoVeers);
-        chkAutoSpy = (CheckBox) findViewById(R.id.checkBoxSpyBot);
         chkDefensive = (CheckBox) findViewById(R.id.checkBoxDefense);
         chkDrivesPart = (CheckBox) findViewById(R.id.checkBoxDrivePartner);
         chkPoorPickup =(CheckBox) findViewById(R.id.checkBoxPoorPickup);
 
-        //Get spinner data defined.
-        spDefense1 = (Spinner) findViewById(R.id.spinnerAutoDef1);
-        spDefense2 = (Spinner) findViewById(R.id.spinnerAutoDef2);
-        spDefense3 = (Spinner) findViewById(R.id.spinnerAutoDef3);
-        spDefense4 = (Spinner) findViewById(R.id.spinnerAutoDef4);
-        spDefenseAuto = (Spinner) findViewById(R.id.spinnerAutoCross);
-
-        String strDef1 = spDefense1.getSelectedItem().toString();
-        String strDef2 = spDefense2.getSelectedItem().toString();
-        String strDef3 = spDefense3.getSelectedItem().toString();
-        String strDef4 = spDefense4.getSelectedItem().toString();
-        String strDefAuto = spDefenseAuto.getSelectedItem().toString();
-
-        String strPCTotal = "0";
-        String strMTTotal = "0";
-        String strDBTotal = "0";
-        String strRWTotal = "0";
-        String strCHTotal = "0";
-        String strRPTotal = "0";
-        String strSPTotal = "0";
-        String strRTTotal = "0";
-
-        //Load Defenses into an Array.
-        String[] strArrayDef = new String[4];
-        strArrayDef[0] = strDef1;
-        strArrayDef[1] = strDef2;
-        strArrayDef[2] = strDef3;
-        strArrayDef[3] = strDef4;
-
-        //Load Defense totals into an Array.
-        String[] strArrayDefTotal = new String[4];
-        strArrayDefTotal[0] = strDef1Total;
-        strArrayDefTotal[1] = strDef2Total;
-        strArrayDefTotal[2] = strDef3Total;
-        strArrayDefTotal[3] = strDef4Total;
-
-        //Save defense totals into the appropriate variables.
-        for (int i = 0; i < 4; i ++) {
-            String strDef = strArrayDef[i];
-            String strDefTotal = strArrayDefTotal[i];
-
-            switch(strDef){
-                case "PC":
-                     strPCTotal = strDefTotal;
-                     break;
-                case "MT":
-                     strMTTotal = strDefTotal;
-                     break;
-                case "DB":
-                     strDBTotal = strDefTotal;
-                     break;
-                case "RW":
-                     strRWTotal = strDefTotal;
-                     break;
-                case "CH":
-                     strCHTotal = strDefTotal;
-                     break;
-                case "RP":
-                     strRPTotal = strDefTotal;
-                     break;
-                case "SP":
-                     strSPTotal = strDefTotal;
-                     break;
-                case "RT":
-                     strRTTotal = strDefTotal;
-                     break;
-                 }
-        }
 
         int selectedIdcolor = rgcolor.getCheckedRadioButtonId();
         rbcolor = (RadioButton) findViewById(selectedIdcolor);
@@ -1220,24 +881,13 @@ public class MainActivity extends AppCompatActivity {
                 rbcolor.getText() + "," +
                 chkDeadBot.isChecked() + "," +
                 chkNoShow.isChecked() + "," +
-                strDef0Total + "," +
-                strPCTotal + "," +
-                strMTTotal + "," +
-                strDBTotal + "," +
-                strRWTotal + "," +
-                strCHTotal + "," +
-                strRPTotal + "," +
-                strSPTotal + "," +
-                strRTTotal + "," +
                 rbaction.getText() + "," +
-                strDefAuto + "," +
                 rbautoshot.getText() + "," +
                 chkAutoMiss.isChecked() + "," +
                 strAutoLoc + "," +
                 chkAutoWrong.isChecked() + "," +
                 chkAutoHit.isChecked() + "," +
                 chkAutoVeers.isChecked() + "," +
-                chkAutoSpy.isChecked() + "," +
                 strHiLoc + "," +
                 strLoLoc + "," +
                 strHiMake + "," +
@@ -1326,9 +976,6 @@ public class MainActivity extends AppCompatActivity {
             if (chkAutoMiss.isChecked()) {
                 chkAutoMiss.toggle();
             }
-            if (chkAutoSpy.isChecked()) {
-                chkAutoSpy.toggle();
-            }
             if (chkAutoVeers.isChecked()) {
                 chkAutoVeers.toggle();
             }
@@ -1354,16 +1001,6 @@ public class MainActivity extends AppCompatActivity {
                 chkPoorPickup.toggle();
             }
 
-            spDefense1.setSelection(0);
-            spDefense2.setSelection(0);
-            spDefense3.setSelection(0);
-            spDefense4.setSelection(0);
-            spDefenseAuto.setSelection(0);
-            Def0Total.setText("0");
-            Def1Total.setText("0");
-            Def2Total.setText("0");
-            Def3Total.setText("0");
-            Def4Total.setText("0");
             HiMake.setText("0");
             HiMiss.setText("0");
             LowMake.setText("0");
@@ -1442,9 +1079,9 @@ public class MainActivity extends AppCompatActivity {
         btnAutoK.setTextColor(Color.BLACK);
         btnAutoL.setTextColor(Color.BLACK);
         btnAutoM.setTextColor(Color.BLACK);
-        btnAutoX.setTextColor(Color.BLACK);
-        btnAutoY.setTextColor(Color.BLACK);
-        btnAutoZ.setTextColor(Color.BLACK);
+        //btnAutoX.setTextColor(Color.BLACK);
+        //btnAutoY.setTextColor(Color.BLACK);
+        //btnAutoZ.setTextColor(Color.BLACK);
     }
 
     public void setTele2black() { //Resets all of the Teleop shooting locations text colors to black
@@ -1461,15 +1098,13 @@ public class MainActivity extends AppCompatActivity {
         btnTeleK.setTextColor(Color.BLACK);
         btnTeleL.setTextColor(Color.BLACK);
         btnTeleM.setTextColor(Color.BLACK);
-        btnTeleX.setTextColor(Color.BLACK);
-        btnTeleY.setTextColor(Color.BLACK);
-        btnTeleZ.setTextColor(Color.BLACK);
+
     }
 
     public void setEnd2black() { // Resets all of the End Game shooting locations text colors to black.
-        btnEndX.setTextColor(Color.BLACK);
-        btnEndY.setTextColor(Color.BLACK);
-        btnEndZ.setTextColor(Color.BLACK);
+        //btnEndX.setTextColor(Color.BLACK);
+       //btnEndY.setTextColor(Color.BLACK);
+        //btnEndZ.setTextColor(Color.BLACK);
     }
 
     @Override

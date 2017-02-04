@@ -4,5 +4,9 @@
     <color name="colorPrimaryDark">#303F9F</color>
     <color name="colorAccent">#FF4081</color>
     <color name="colorBlack">#000000</color>
-    <color name="colorRed">#00FF00</color>
+    <color name="colorGreen">#00ff00</color>
+    <color name="colorPastelGrey">#CFCFC4</color>
+    <color name="colorPastelYellow">#fdfd96</color>
+    <color name="colorBrightGreen">#66FF00</color>
+    <color name="colorPastelBlue">#4fa5d5</color>
 </resources>

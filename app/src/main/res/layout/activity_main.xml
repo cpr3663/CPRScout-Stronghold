@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:orientation="vertical"
@@ -175,7 +176,6 @@
                 android:enabled="true"
                 android:selectAllOnFocus="true"
                 android:imeOptions="actionNext"
-                android:backgroundTint="#3a30a9"
                 android:textStyle="bold" />
 
             <EditText
@@ -191,7 +191,6 @@
                 android:clickable="true"
                 android:editable="true"
                 android:enabled="true"
-                android:backgroundTint="#3a30a9"
                 android:textStyle="bold"
                 android:gravity="center"
                 android:imeOptions="actionDone"
@@ -212,267 +211,233 @@
             android:textAppearance="?android:attr/textAppearanceLarge"
             android:text="@string/auto_shoot"
             android:id="@+id/textViewAuto"
-            android:background="@color/button_material_light"
+            android:background="@color/colorPastelYellow"
             android:gravity="center" />
 
     </LinearLayout>
 
-    <LinearLayout
-        android:layout_width="fill_parent"
-        android:layout_height="fill_parent"
-        android:orientation="vertical">
-
-    <GridLayout
+    <RelativeLayout  xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
         android:layout_width="match_parent"
-        android:layout_height="fill_parent"
-        android:layout_weight="1.09"
-        android:id="@+id/AutoLocationGrid"
-        android:rowCount="1">
+        android:layout_height="match_parent">
 
-        <Button
-            android:layout_width="60dp"
-            android:layout_height="60dp"
-            android:text="A"
-            android:id="@+id/btnAutoA"
-            android:onClick="setContentView"
-            android:background="@drawable/backblue"
-            android:layout_row="0"
-            android:layout_column="0"
-            android:textColor="@android:color/black"
-            android:textStyle="bold" />
+        <ImageView
+            android:layout_width="450dp"
+            android:layout_height="280dp"
+            app:srcCompat="@drawable/fieldbluecompressed"
+            android:alpha=".6"
+            android:id="@+id/imagetouchpad" />
 
-        <Button
-            android:layout_width="60dp"
-            android:layout_height="60dp"
-            android:text="B"
-            android:id="@+id/btnAutoB"
-            android:onClick="setContentView"
-            android:background="@drawable/backblue"
-            android:layout_row="0"
-            android:layout_column="1"
-            android:textColor="@android:color/black"
-            android:textStyle="bold" />
+        <LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:orientation="vertical"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true">
 
-        <Button
-            android:layout_width="40dp"
-            android:layout_height="60dp"
-            android:text="X"
-            android:id="@+id/btnAutoX"
-            android:onClick="setContentView"
-            android:background="@drawable/backblue"
-            android:layout_row="0"
-            android:layout_column="2"
-            android:textStyle="bold" />
+            <GridLayout
+                android:layout_width="match_parent"
+                android:layout_height="fill_parent"
+                android:layout_weight="1.09"
+                android:id="@+id/AutoLocationGridBlue"
+                android:rowCount="6"
+                android:padding="2dp">
 
-        <Button
-            android:layout_width="40dp"
-            android:layout_height="60dp"
-            android:text="Y"
-            android:id="@+id/btnAutoY"
-            android:onClick="setContentView"
-            android:background="@drawable/backblue"
-            android:layout_row="0"
-            android:layout_column="3"
-            android:textStyle="bold" />
+                <Button
+                    android:layout_width="50dp"
+                    android:layout_height="55dp"
+                    android:text="A"
+                    android:id="@+id/btnAutoA"
+                    android:onClick="setContentView"
+                    android:background="@drawable/backyellow"
+                    android:alpha=".70"
+                    android:layout_row="0"
+                    android:layout_column="0"
+                    android:textColor="@color/colorPrimaryDark"
+                    android:textStyle="bold" />
 
-        <Button
-            android:layout_width="40dp"
-            android:layout_height="60dp"
-            android:text="Z"
-            android:id="@+id/btnAutoZ"
-            android:onClick="setContentView"
-            android:background="@drawable/backblue"
-            android:layout_row="0"
-            android:layout_column="4"
-            android:textStyle="bold" />
+                <Button
+                    android:layout_width="50dp"
+                    android:layout_height="55dp"
+                    android:text="B"
+                    android:id="@+id/btnAutoB"
+                    android:onClick="setContentView"
+                    android:background="@drawable/backyellow"
+                    android:alpha=".70"
+                    android:layout_row="0"
+                    android:layout_column="1"
+                    android:textColor="@color/colorPrimaryDark"
+                    android:textStyle="bold" />
 
-        <Button
-            android:layout_width="60dp"
-            android:layout_height="60dp"
-            android:text="C"
-            android:id="@+id/btnAutoC"
-            android:onClick="setContentView"
-            android:background="@drawable/backblue"
-            android:layout_row="0"
-            android:layout_column="5"
-            android:textStyle="bold" />
-    </GridLayout>
+                <Button
+                    android:layout_width="50dp"
+                    android:layout_height="55dp"
+                    android:text="C"
+                    android:id="@+id/btnAutoC"
+                    android:onClick="setContentView"
+                    android:background="@drawable/backyellow"
+                    android:alpha=".70"
+                    android:layout_row="0"
+                    android:layout_column="2"
+                    android:textColor="@color/colorPrimaryDark"
+                    android:textStyle="bold" />
 
-    <GridLayout
-        android:layout_width="match_parent"
-        android:layout_height="fill_parent"
-        android:layout_weight="1.09"
-        android:id="@+id/AutoLocationGrid"
-        android:rowCount="3">
+                <Button
+                    android:layout_width="50dp"
+                    android:layout_height="55dp"
+                    android:text="D"
+                    android:id="@+id/btnAutoD"
+                    android:onClick="setContentView"
+                    android:background="@drawable/backyellow"
+                    android:alpha=".70"
+                    android:layout_row="1"
+                    android:layout_column="0"
+                    android:textColor="@color/colorPrimaryDark"
+                    android:textStyle="bold" />
 
-        <Button
-            android:layout_width="60dp"
-            android:layout_height="60dp"
-            android:text="D"
-            android:id="@+id/btnAutoD"
-            android:onClick="setContentView"
-            android:background="@drawable/backblue"
-            android:layout_row="0"
-            android:layout_column="0"
-            android:textStyle="bold" />
+                <Button
+                    android:layout_width="50dp"
+                    android:layout_height="55dp"
+                    android:text="E"
+                    android:id="@+id/btnAutoE"
+                    android:onClick="setContentView"
+                    android:background="@drawable/backyellow"
+                    android:alpha=".70"
+                    android:layout_row="1"
+                    android:layout_column="1"
+                    android:textColor="@color/colorPrimaryDark"
+                    android:textStyle="bold" />
 
-        <Button
-            android:layout_width="60dp"
-            android:layout_height="60dp"
-            android:text="E"
-            android:id="@+id/btnAutoE"
-            android:onClick="setContentView"
-            android:background="@drawable/backblue"
-            android:layout_row="0"
-            android:layout_column="1"
-            android:textStyle="bold" />
+                <Button
+                    android:layout_width="50dp"
+                    android:layout_height="55dp"
+                    android:text="F"
+                    android:id="@+id/btnAutoF"
+                    android:onClick="setContentView"
+                    android:background="@drawable/backyellow"
+                    android:alpha=".70"
+                    android:layout_row="1"
+                    android:layout_column="2"
+                    android:textColor="@color/colorPrimaryDark"
+                    android:textStyle="bold" />
 
-        <Button
-            android:layout_width="60dp"
-            android:layout_height="60dp"
-            android:text="F"
-            android:id="@+id/btnAutoF"
-            android:onClick="setContentView"
-            android:background="@drawable/backblue"
-            android:layout_row="0"
-            android:layout_column="2"
-            android:textStyle="bold" />
+                <Button
+                    android:layout_width="50dp"
+                    android:layout_height="55dp"
+                    android:text="G"
+                    android:id="@+id/btnAutoG"
+                    android:onClick="setContentView"
+                    android:background="@drawable/backyellow"
+                    android:alpha=".70"
+                    android:layout_row="2"
+                    android:layout_column="0"
+                    android:textColor="@color/colorPrimaryDark"
+                    android:textStyle="bold" />
 
-        <Button
-            android:layout_width="60dp"
-            android:layout_height="60dp"
-            android:text="G"
-            android:id="@+id/btnAutoG"
-            android:onClick="setContentView"
-            android:background="@drawable/backblue"
-            android:layout_row="0"
-            android:layout_column="3"
-            android:textStyle="bold" />
+                <Button
+                    android:layout_width="50dp"
+                    android:layout_height="55dp"
+                    android:text="H"
+                    android:id="@+id/btnAutoH"
+                    android:onClick="setContentView"
+                    android:background="@drawable/backyellow"
+                    android:alpha=".70"
+                    android:layout_row="2"
+                    android:layout_column="1"
+                    android:textColor="@color/colorPrimaryDark"
+                    android:textStyle="bold" />
 
-        <Button
-            android:layout_width="60dp"
-            android:layout_height="60dp"
-            android:text="H"
-            android:id="@+id/btnAutoH"
-            android:onClick="setContentView"
-            android:background="@drawable/backblue"
-            android:layout_row="0"
-            android:layout_column="4"
-            android:textStyle="bold" />
+                <Button
+                    android:layout_width="50dp"
+                    android:layout_height="55dp"
+                    android:text="I"
+                    android:id="@+id/btnAutoI"
+                    android:onClick="setContentView"
+                    android:background="@drawable/backyellow"
+                    android:alpha=".70"
+                    android:layout_row="3"
+                    android:layout_column="0"
+                    android:textColor="@color/colorPrimaryDark"
+                    android:textStyle="bold" />
 
-        <Button
-            android:layout_width="60dp"
-            android:layout_height="60dp"
-            android:text="I"
-            android:id="@+id/btnAutoI"
-            android:onClick="setContentView"
-            android:background="@drawable/backblue"
-            android:layout_row="1"
-            android:layout_column="0"
-            android:textStyle="bold" />
+                <Button
+                    android:layout_width="50dp"
+                    android:layout_height="55dp"
+                    android:text="J"
+                    android:id="@+id/btnAutoJ"
+                    android:onClick="setContentView"
+                    android:background="@drawable/backyellow"
+                    android:alpha=".70"
+                    android:layout_row="3"
+                    android:layout_column="1"
+                    android:textColor="@color/colorPrimaryDark"
+                    android:textStyle="bold" />
 
-        <Button
-            android:layout_width="60dp"
-            android:layout_height="60dp"
-            android:text="J"
-            android:id="@+id/btnAutoJ"
-            android:onClick="setContentView"
-            android:background="@drawable/backblue"
-            android:layout_row="1"
-            android:layout_column="1"
-            android:textStyle="bold" />
+                <Button
+                    android:layout_width="50dp"
+                    android:layout_height="55dp"
+                    android:text="K"
+                    android:id="@+id/btnAutoK"
+                    android:onClick="setContentView"
+                    android:background="@drawable/backyellow"
+                    android:alpha=".70"
+                    android:layout_row="3"
+                    android:layout_column="2"
+                    android:textColor="@color/colorPrimaryDark"
+                    android:textStyle="bold" />
 
-        <Button
-            android:layout_width="60dp"
-            android:layout_height="60dp"
-            android:text="K"
-            android:id="@+id/btnAutoK"
-            android:onClick="setContentView"
-            android:background="@drawable/backblue"
-            android:layout_row="1"
-            android:layout_column="2"
-            android:textStyle="bold" />
+                <Button
+                    android:layout_width="50dp"
+                    android:layout_height="55dp"
+                    android:text="L"
+                    android:id="@+id/btnAutoL"
+                    android:onClick="setContentView"
+                    android:background="@drawable/backyellow"
+                    android:alpha=".70"
+                    android:layout_row="4"
+                    android:layout_column="0"
+                    android:textColor="@color/colorPrimaryDark"
+                    android:textStyle="bold" />
 
-        <Button
-            android:layout_width="60dp"
-            android:layout_height="60dp"
-            android:text="L"
-            android:id="@+id/btnAutoL"
-            android:onClick="setContentView"
-            android:background="@drawable/backblue"
-            android:layout_row="1"
-            android:layout_column="3"
-            android:textStyle="bold" />
+                <Button
+                    android:layout_width="50dp"
+                    android:layout_height="55dp"
+                    android:text="M"
+                    android:id="@+id/btnAutoM"
+                    android:onClick="setContentView"
+                    android:background="@drawable/backyellow"
+                    android:alpha=".70"
+                    android:layout_row="4"
+                    android:layout_column="1"
+                    android:textColor="@color/colorPrimaryDark"
+                    android:textStyle="bold" />
+                <Button
+                    android:layout_width="50dp"
+                    android:layout_height="55dp"
+                    android:text="N"
+                    android:id="@+id/btnAutoN"
+                    android:onClick="setContentView"
+                    android:background="@drawable/backyellow"
+                    android:alpha=".70"
+                    android:layout_row="4"
+                    android:layout_column="2"
+                    android:textColor="@color/colorPrimaryDark"
+                    android:textStyle="bold" />
 
-        <Button
-            android:layout_width="60dp"
-            android:layout_height="60dp"
-            android:text="M"
-            android:id="@+id/btnAutoM"
-            android:onClick="setContentView"
-            android:background="@drawable/backblue"
-            android:layout_row="1"
-            android:layout_column="4"
-            android:textStyle="bold" />
+            </GridLayout>
 
-        <Button
-            android:layout_width="60dp"
-            android:layout_height="60dp"
-            android:text="LB"
-            android:id="@+id/btnAutoLB"
-            android:background="@drawable/backblue"
-            android:layout_row="2"
-            android:layout_column="0"
-            android:textStyle="bold" />
-
-        <Spinner
-            android:id="@+id/spinnerAutoDef1"
-            android:layout_width="60dp"
-            android:layout_height="60dp"
-            android:background="@drawable/backred"
-            android:layout_row="2"
-            android:layout_column="1"
-            android:gravity="center"
-            android:foregroundGravity="center"
-            android:layout_gravity="top"
-            android:spinnerMode="dropdown"></Spinner>
-
-        <Spinner
-            android:id="@+id/spinnerAutoDef2"
-            android:layout_width="60dp"
-            android:layout_height="60dp"
-            android:background="@drawable/backred"
-            android:layout_row="2"
-            android:layout_column="2"
-            android:gravity="center"
-            android:layout_gravity="top"
-            android:spinnerMode="dropdown" />
-
-        <Spinner
-            android:id="@+id/spinnerAutoDef3"
-            android:layout_width="60dp"
-            android:layout_height="60dp"
-            android:background="@drawable/backred"
-            android:layout_row="2"
-            android:layout_column="3"
-            android:gravity="center"
-            android:layout_gravity="top"
-            android:spinnerMode="dropdown" />
-
-        <Spinner
-            android:id="@+id/spinnerAutoDef4"
-            android:layout_width="60dp"
-            android:layout_height="60dp"
-            android:background="@drawable/backred"
-            android:layout_row="2"
-            android:layout_column="4"
-            android:gravity="center"
-            android:layout_gravity="top"
-            android:spinnerMode="dropdown" />
+            <GridLayout
+                android:layout_width="match_parent"
+                android:layout_height="fill_parent"
+                android:layout_weight="1.09"
+                android:id="@+id/AutoLocationGrid"
+                android:rowCount="3">
 
 
-    </GridLayout>
-</LinearLayout>
+            </GridLayout>
+        </LinearLayout>
+    </RelativeLayout>
 
     <LinearLayout
         android:orientation="horizontal"
@@ -516,18 +481,6 @@
                 android:textStyle="bold" />
 
         </RadioGroup>
-
-        <Spinner
-            android:id="@+id/spinnerAutoCross"
-            android:layout_width="60dp"
-            android:layout_height="40dp"
-            android:background="@drawable/backred"
-            android:layout_row="2"
-            android:layout_column="4"
-            android:gravity="right"
-            android:spinnerMode="dropdown"
-            android:textAlignment="center"
-            android:layout_weight="0.15" />
 
     </LinearLayout>
 
@@ -661,14 +614,6 @@
             android:textColor="#ef2505f3"
             android:textStyle="bold" />
 
-        <CheckBox
-            android:layout_width="70dp"
-            android:layout_height="match_parent"
-            android:text="Spy Bot"
-            android:id="@+id/checkBoxSpyBot"
-            android:textColor="#ef2505f3"
-            android:textStyle="bold" />
-
     </LinearLayout>
 
     <LinearLayout
@@ -684,10 +629,11 @@
             android:textAppearance="?android:attr/textAppearanceLarge"
             android:text="@string/teleop_shoot"
             android:id="@+id/textView"
-            android:background="@color/button_material_light"
+            android:background="@color/colorGreen"
             android:gravity="center" />
 
     </LinearLayout>
+
 
     <LinearLayout
         android:orientation="horizontal"
@@ -779,387 +725,237 @@
             android:gravity="center" />
     </LinearLayout>
 
-    <LinearLayout
-        android:layout_width="fill_parent"
-        android:layout_height="fill_parent"
-        android:orientation="vertical" >
 
-        <GridLayout
-            android:layout_width="match_parent"
+
+    <RelativeLayout  xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <ImageView
+            android:layout_width="170dp"
+            android:layout_height="300dp"
+            app:srcCompat="@drawable/launchpadred"
+            android:alpha=".6"
+            android:id="@+id/imagetouchpad" />
+
+        <LinearLayout
+            android:layout_width="fill_parent"
             android:layout_height="fill_parent"
-            android:layout_weight="1.09"
-            android:id="@+id/gridLayout"
-            android:rowCount="1" >
+            android:orientation="vertical"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true">
 
-            <Button
-                android:layout_width="60dp"
-                android:layout_height="60dp"
-                android:text="A"
-                android:id="@+id/btnTeleA"
-                android:onClick="setContentView"
-                android:background="@drawable/backblue"
-                android:layout_row="0"
-                android:layout_column="0"
-                android:textColor="@android:color/black"
-                android:textStyle="bold" />
+            <GridLayout
+                android:layout_width="match_parent"
+                android:layout_height="fill_parent"
+                android:layout_weight="1.09"
+                android:id="@+id/TeleLocationGridBlue"
+                android:rowCount="6"
+                android:padding="5dp">
 
-            <Button
-                android:layout_width="60dp"
-                android:layout_height="60dp"
-                android:text="B"
-                android:id="@+id/btnTeleB"
-                android:onClick="setContentView"
-                android:background="@drawable/backblue"
-                android:layout_row="0"
-                android:layout_column="1"
-                android:textColor="@android:color/black"
-                android:textStyle="bold" />
+                <Button
+                    android:layout_width="50dp"
+                    android:layout_height="55dp"
+                    android:text="A"
+                    android:id="@+id/btnATeleA"
+                    android:onClick="setContentView"
+                    android:background="@drawable/backgreen"
+                    android:alpha=".80"
+                    android:layout_row="0"
+                    android:layout_column="0"
+                    android:textColor="?android:attr/colorPrimaryDark"
+                    android:textStyle="bold" />
 
-            <Button
-                android:layout_width="40dp"
-                android:layout_height="60dp"
-                android:text="X"
-                android:id="@+id/btnTeleX"
-                android:onClick="setContentView"
-                android:background="@drawable/backblue"
-                android:layout_row="0"
-                android:layout_column="2"
-                android:textStyle="bold" />
+                <Button
+                    android:layout_width="50dp"
+                    android:layout_height="55dp"
+                    android:text="B"
+                    android:id="@+id/btnTeleB"
+                    android:onClick="setContentView"
+                    android:background="@drawable/backgreen"
+                    android:alpha=".60"
+                    android:layout_row="0"
+                    android:layout_column="1"
+                    android:textColor="@color/colorPrimaryDark"
+                    android:textStyle="bold" />
 
-            <Button
-                android:layout_width="40dp"
-                android:layout_height="60dp"
-                android:text="Y"
-                android:id="@+id/btnTeleY"
-                android:onClick="setContentView"
-                android:background="@drawable/backblue"
-                android:layout_row="0"
-                android:layout_column="3"
-                android:textStyle="bold" />
+                <Button
+                    android:layout_width="50dp"
+                    android:layout_height="55dp"
+                    android:text="C"
+                    android:id="@+id/btnTeleC"
+                    android:onClick="setContentView"
+                    android:background="@drawable/backgreen"
+                    android:alpha=".60"
+                    android:layout_row="0"
+                    android:layout_column="2"
+                    android:textColor="@color/colorPrimaryDark"
+                    android:textStyle="bold" />
 
-            <Button
-                android:layout_width="40dp"
-                android:layout_height="60dp"
-                android:text="Z"
-                android:id="@+id/btnTeleZ"
-                android:onClick="setContentView"
-                android:background="@drawable/backblue"
-                android:layout_row="0"
-                android:layout_column="4"
-                android:textStyle="bold" />
+                <Button
+                    android:layout_width="50dp"
+                    android:layout_height="55dp"
+                    android:text="D"
+                    android:id="@+id/btnTeleD"
+                    android:onClick="setContentView"
+                    android:background="@drawable/backgreen"
+                    android:alpha=".60"
+                    android:layout_row="1"
+                    android:layout_column="0"
+                    android:textColor="@color/colorPrimaryDark"
+                    android:textStyle="bold" />
 
-            <Button
-                android:layout_width="60dp"
-                android:layout_height="60dp"
-                android:text="C"
-                android:id="@+id/btnTeleC"
-                android:onClick="setContentView"
-                android:background="@drawable/backblue"
-                android:layout_row="0"
-                android:layout_column="5"
-                android:textStyle="bold" />
-        </GridLayout>
+                <Button
+                    android:layout_width="50dp"
+                    android:layout_height="55dp"
+                    android:text="E"
+                    android:id="@+id/btnTeleE"
+                    android:onClick="setContentView"
+                    android:background="@drawable/backgreen"
+                    android:alpha=".60"
+                    android:layout_row="1"
+                    android:layout_column="1"
+                    android:textColor="@color/colorPrimaryDark"
+                    android:textStyle="bold" />
 
-        <GridLayout
-            android:layout_width="match_parent"
-            android:layout_height="fill_parent"
-            android:layout_weight="1.09"
-            android:id="@+id/gridLayout2"
-            android:rowCount="3" >
+                <Button
+                    android:layout_width="50dp"
+                    android:layout_height="55dp"
+                    android:text="F"
+                    android:id="@+id/btnTeleF"
+                    android:onClick="setContentView"
+                    android:background="@drawable/backgreen"
+                    android:alpha=".60"
+                    android:layout_row="1"
+                    android:layout_column="2"
+                    android:textColor="@color/colorPrimaryDark"
+                    android:textStyle="bold" />
 
-            <Button
-                android:layout_width="60dp"
-                android:layout_height="60dp"
-                android:text="D"
-                android:id="@+id/btnTeleD"
-                android:onClick="setContentView"
-                android:background="@drawable/backblue"
-                android:layout_row="0"
-                android:layout_column="0"
-                android:textStyle="bold" />
+                <Button
+                    android:layout_width="50dp"
+                    android:layout_height="55dp"
+                    android:text="G"
+                    android:id="@+id/btnTeleG"
+                    android:onClick="setContentView"
+                    android:background="@drawable/backgreen"
+                    android:alpha=".60"
+                    android:layout_row="2"
+                    android:layout_column="0"
+                    android:textColor="@color/colorPrimaryDark"
+                    android:textStyle="bold" />
 
-            <Button
-                android:layout_width="60dp"
-                android:layout_height="60dp"
-                android:text="E"
-                android:id="@+id/btnTeleE"
-                android:onClick="setContentView"
-                android:background="@drawable/backblue"
-                android:layout_row="0"
-                android:layout_column="1"
-                android:textStyle="bold" />
+                <Button
+                    android:layout_width="50dp"
+                    android:layout_height="55dp"
+                    android:text="H"
+                    android:id="@+id/btnTeleH"
+                    android:onClick="setContentView"
+                    android:background="@drawable/backgreen"
+                    android:alpha=".60"
+                    android:layout_row="2"
+                    android:layout_column="1"
+                    android:textColor="@color/colorPrimaryDark"
+                    android:textStyle="bold" />
 
-            <Button
-                android:layout_width="60dp"
-                android:layout_height="60dp"
-                android:text="F"
-                android:id="@+id/btnTeleF"
-                android:onClick="setContentView"
-                android:background="@drawable/backblue"
-                android:layout_row="0"
-                android:layout_column="2"
-                android:textStyle="bold" />
+                <Button
+                    android:layout_width="50dp"
+                    android:layout_height="55dp"
+                    android:text="I"
+                    android:id="@+id/btnTeleI"
+                    android:onClick="setContentView"
+                    android:background="@drawable/backgreen"
+                    android:alpha=".60"
+                    android:layout_row="3"
+                    android:layout_column="0"
+                    android:textColor="@color/colorPrimaryDark"
+                    android:textStyle="bold" />
 
-            <Button
-                android:layout_width="60dp"
-                android:layout_height="60dp"
-                android:text="G"
-                android:id="@+id/btnTeleG"
-                android:onClick="setContentView"
-                android:background="@drawable/backblue"
-                android:layout_row="0"
-                android:layout_column="3"
-                android:textStyle="bold" />
+                <Button
+                    android:layout_width="50dp"
+                    android:layout_height="55dp"
+                    android:text="J"
+                    android:id="@+id/btnTeleJ"
+                    android:onClick="setContentView"
+                    android:background="@drawable/backgreen"
+                    android:alpha=".60"
+                    android:layout_row="3"
+                    android:layout_column="1"
+                    android:textColor="@color/colorPrimaryDark"
+                    android:textStyle="bold" />
 
-            <Button
-                android:layout_width="60dp"
-                android:layout_height="60dp"
-                android:text="H"
-                android:id="@+id/btnTeleH"
-                android:onClick="setContentView"
-                android:background="@drawable/backblue"
-                android:layout_row="0"
-                android:layout_column="4"
-                android:textStyle="bold" />
+                <Button
+                    android:layout_width="50dp"
+                    android:layout_height="55dp"
+                    android:text="K"
+                    android:id="@+id/btnTeleK"
+                    android:onClick="setContentView"
+                    android:background="@drawable/backgreen"
+                    android:alpha=".60"
+                    android:layout_row="3"
+                    android:layout_column="2"
+                    android:textColor="@color/colorPrimaryDark"
+                    android:textStyle="bold" />
 
-            <Button
-                android:layout_width="60dp"
-                android:layout_height="60dp"
-                android:text="I"
-                android:id="@+id/btnTeleI"
-                android:onClick="setContentView"
-                android:background="@drawable/backblue"
-                android:layout_row="1"
-                android:layout_column="0"
-                android:textStyle="bold" />
+                <Button
+                    android:layout_width="50dp"
+                    android:layout_height="55dp"
+                    android:text="L"
+                    android:id="@+id/btnTeleL"
+                    android:onClick="setContentView"
+                    android:background="@drawable/backgreen"
+                    android:alpha=".60"
+                    android:layout_row="4"
+                    android:layout_column="0"
+                    android:textColor="@color/colorPrimaryDark"
+                    android:textStyle="bold" />
 
-            <Button
-                android:layout_width="60dp"
-                android:layout_height="60dp"
-                android:text="J"
-                android:id="@+id/btnTeleJ"
-                android:onClick="setContentView"
-                android:background="@drawable/backblue"
-                android:layout_row="1"
-                android:layout_column="1"
-                android:textStyle="bold" />
+                <Button
+                    android:layout_width="50dp"
+                    android:layout_height="55dp"
+                    android:text="M"
+                    android:id="@+id/btnTeleM"
+                    android:onClick="setContentView"
+                    android:background="@drawable/backgreen"
+                    android:alpha=".60"
+                    android:layout_row="4"
+                    android:layout_column="1"
+                    android:textColor="@color/colorPrimaryDark"
+                    android:textStyle="bold" />
+                <Button
+                    android:layout_width="50dp"
+                    android:layout_height="55dp"
+                    android:text="N"
+                    android:id="@+id/btnTeleN"
+                    android:onClick="setContentView"
+                    android:background="@drawable/backgreen"
+                    android:alpha=".60"
+                    android:layout_row="4"
+                    android:layout_column="2"
+                    android:textColor="@color/colorPrimaryDark"
+                    android:textStyle="bold" />
 
-            <Button
-                android:layout_width="60dp"
-                android:layout_height="60dp"
-                android:text="K"
-                android:id="@+id/btnTeleK"
-                android:onClick="setContentView"
-                android:background="@drawable/backblue"
-                android:layout_row="1"
-                android:layout_column="2"
-                android:textStyle="bold" />
+            </GridLayout>
 
-            <Button
-                android:layout_width="60dp"
-                android:layout_height="60dp"
-                android:text="L"
-                android:id="@+id/btnTeleL"
-                android:onClick="setContentView"
-                android:background="@drawable/backblue"
-                android:layout_row="1"
-                android:layout_column="3"
-                android:textStyle="bold" />
+            <GridLayout
+                android:layout_width="match_parent"
+                android:layout_height="fill_parent"
+                android:layout_weight="1.09"
+                android:id="@+id/AutoLocationGrid"
+                android:rowCount="3">
 
-            <Button
-                android:layout_width="60dp"
-                android:layout_height="60dp"
-                android:text="M"
-                android:id="@+id/btnTeleM"
-                android:onClick="setContentView"
-                android:background="@drawable/backblue"
-                android:layout_row="1"
-                android:layout_column="4"
-                android:textStyle="bold" />
 
-            <Button
-                android:layout_width="60dp"
-                android:layout_height="60dp"
-                android:text="LB"
-                android:id="@+id/btnTeleDef0"
-                android:background="@drawable/backred"
-                android:layout_row="2"
-                android:layout_column="0"
-                android:textStyle="bold"
-                android:onClick="setContentView"
-                android:clickable="true" />
+            </GridLayout>
+        </LinearLayout>
+    </RelativeLayout>
 
-            <Button
-                android:layout_width="60dp"
-                android:layout_height="60dp"
-                android:id="@+id/btnTeleDef1"
-                android:background="@drawable/backred"
-                android:layout_row="2"
-                android:layout_column="1"
-                android:textStyle="bold"
-                android:onClick="setContentView"
-                android:clickable="true" />
-
-            <Button
-                android:layout_width="60dp"
-                android:layout_height="60dp"
-                android:id="@+id/btnTeleDef2"
-                android:background="@drawable/backred"
-                android:layout_row="2"
-                android:layout_column="2"
-                android:textStyle="bold"
-                android:onClick="setContentView"
-                android:clickable="true" />
-
-            <Button
-                android:layout_width="60dp"
-                android:layout_height="60dp"
-                android:id="@+id/btnTeleDef3"
-                android:background="@drawable/backred"
-                android:layout_row="2"
-                android:layout_column="3"
-                android:textStyle="bold"
-                android:nestedScrollingEnabled="false"
-                android:onClick="setContentView"
-                android:clickable="true" />
-
-            <Button
-                android:layout_width="60dp"
-                android:layout_height="60dp"
-                android:id="@+id/btnTeleDef4"
-                android:background="@drawable/backred"
-                android:layout_row="2"
-                android:layout_column="4"
-                android:textStyle="bold"
-                android:onClick="setContentView"
-                android:clickable="true" />
-
-        </GridLayout>
-    </LinearLayout>
 
     <LinearLayout
         android:orientation="horizontal"
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
 
-        <EditText
-            android:layout_width="60dp"
-            android:layout_height="wrap_content"
-            android:inputType="number"
-            android:ems="10"
-            android:id="@+id/Def0Total"
-            android:imeOptions="actionDone"
-            android:layout_alignParentLeft="true"
-            android:layout_alignParentStart="true"
-            android:layout_toLeftOf="@+id/textViewMatch"
-            android:layout_toStartOf="@+id/textViewMatch"
-            android:layout_below="@+id/radiobuttonRed"
-            android:layout_alignParentEnd="false"
-            android:clickable="false"
-            android:editable="true"
-            android:gravity="center"
-            android:enabled="true"
-            android:selectAllOnFocus="true"
-            android:backgroundTint="#3a30a9"
-            android:textColor="#ff0000"
-            android:textStyle="bold"
-            android:text="0"
-            android:numeric="integer" />
-
-        <EditText
-            android:layout_width="60dp"
-            android:layout_height="wrap_content"
-            android:ems="10"
-            android:id="@+id/Def1Total"
-            android:imeOptions="actionDone"
-            android:layout_alignParentLeft="true"
-            android:layout_alignParentStart="true"
-            android:layout_toLeftOf="@+id/textViewMatch"
-            android:layout_toStartOf="@+id/textViewMatch"
-            android:layout_below="@+id/radiobuttonRed"
-            android:layout_alignParentEnd="false"
-            android:clickable="false"
-            android:editable="true"
-            android:gravity="center"
-            android:enabled="true"
-            android:selectAllOnFocus="true"
-            android:backgroundTint="#3a30a9"
-            android:textColor="#ff0000"
-            android:textStyle="bold"
-            android:text="0"
-            android:inputType="number"
-            android:numeric="integer" />
-
-        <EditText
-            android:layout_width="60dp"
-            android:layout_height="wrap_content"
-            android:inputType="number"
-            android:ems="10"
-            android:id="@+id/Def2Total"
-            android:imeOptions="actionDone"
-            android:layout_alignParentLeft="true"
-            android:layout_alignParentStart="true"
-            android:layout_toLeftOf="@+id/textViewMatch"
-            android:layout_toStartOf="@+id/textViewMatch"
-            android:layout_below="@+id/radiobuttonRed"
-            android:layout_alignParentEnd="false"
-            android:clickable="false"
-            android:editable="true"
-            android:gravity="center"
-            android:enabled="true"
-            android:selectAllOnFocus="true"
-            android:backgroundTint="#3a30a9"
-            android:textColor="#ff0000"
-            android:textStyle="bold"
-            android:text="0"
-            android:numeric="integer" />
-
-        <EditText
-            android:layout_width="60dp"
-            android:layout_height="wrap_content"
-            android:ems="10"
-            android:id="@+id/Def3Total"
-            android:imeOptions="actionDone"
-            android:layout_alignParentLeft="true"
-            android:layout_alignParentStart="true"
-            android:layout_toLeftOf="@+id/textViewMatch"
-            android:layout_toStartOf="@+id/textViewMatch"
-            android:layout_below="@+id/radiobuttonRed"
-            android:layout_alignParentEnd="false"
-            android:clickable="false"
-            android:editable="true"
-            android:gravity="center"
-            android:enabled="true"
-            android:selectAllOnFocus="true"
-            android:backgroundTint="#3a30a9"
-            android:textColor="#ff0000"
-            android:textStyle="bold"
-            android:text="0"
-            android:inputType="number"
-            android:numeric="integer" />
-
-        <EditText
-            android:layout_width="60dp"
-            android:layout_height="wrap_content"
-            android:inputType="number"
-            android:ems="10"
-            android:id="@+id/Def4Total"
-            android:imeOptions="actionDone"
-            android:layout_alignParentStart="true"
-            android:layout_toLeftOf="@+id/textViewMatch"
-            android:layout_toStartOf="@+id/textViewMatch"
-            android:layout_below="@+id/radiobuttonRed"
-            android:layout_alignParentEnd="false"
-            android:clickable="false"
-            android:editable="true"
-            android:gravity="center"
-            android:enabled="true"
-            android:selectAllOnFocus="true"
-            android:backgroundTint="#3a30a9"
-            android:textColor="#ff0000"
-            android:textStyle="bold"
-            android:text="0"
-            android:numeric="integer" />
     </LinearLayout>
 
     <LinearLayout
